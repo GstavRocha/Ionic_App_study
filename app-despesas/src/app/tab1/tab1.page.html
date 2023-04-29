@@ -1,17 +1,43 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Despesas
+  <ion-toolbar  color="primary">
+    <ion-title class="ion-text-center">
+      Novas Despesas
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Despesas</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content [fullscreen]="false">
+   <form [formGroup]="fg">
+     <ion-list>
+       <ion-item>
+         <ion-input label="motivo" type="text" label-placement="floating" formControlName="motivo">
+         </ion-input>
+       </ion-item>
+       <ion-item>
+         <ion-select label="tipo" placeholder="Lista de despesa" formControlName="tipo">
+           <ion-select-option value="apples">Apple</ion-select-option>
+           <ion-select-option value="bananas">Bananas</ion-select-option>
+         </ion-select>
+       </ion-item>
+       <ion-item lines="none"><ion-label>Data</ion-label></ion-item>
+       <ion-item>
+         <ion-datetime locale="pt-BR" presentation="date" formControlName="data"></ion-datetime>
+       </ion-item>
+     </ion-list>
+   </form>
+   <ion-fab vertical="bottom" horizontal="start">
+     <ion-fab-button name="add" (click)="adicionar()">
+       <ion-icon name="add-outline"></ion-icon>
+     </ion-fab-button>
+   </ion-fab>
+   <ion-fab vertical="bottom" horizontal="center">
+     <ion-fab-button name="ver" (click)="ver()">
+       <ion-icon name="eye-outline"></ion-icon>
+     </ion-fab-button>
+   </ion-fab>
+   <ion-fab vertical="bottom" horizontal="end">
+     <ion-fab-button name="limpar" (click)="limpar()">
+       <ion-icon name="trash-outline"></ion-icon>
+     </ion-fab-button>
+   </ion-fab>
   <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
