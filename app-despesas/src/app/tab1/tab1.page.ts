@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {IonicModule} from "@ionic/angular";
+import {AlertController, IonicModule} from "@ionic/angular";
 import {ExploreContainerComponentModule} from "../explore-container/explore-container.module";
 import {NgForOf} from "@angular/common";
 import {Despesa, TipoDespesa} from "../despesa";
@@ -16,54 +16,56 @@ import {DespesaServiceService} from "../despesa.service.service";
 export class Tab1Page {
 fg: FormGroup;
 tipo: string[];
-cor: string;
-public alertbotao: any[]=['ok'];
-  constructor(private fb: FormBuilder,public dp: DespesaServiceService) {
+isStatus: string;
+  constructor(private fb: FormBuilder,public dp: DespesaServiceService, private alert: AlertController) {
     this.fg = fb.group({
-      motivo: ['', Validators.required],
+      motivo: [null, [Validators.required, Validators.minLength(3)]],
       valor: [0.0, Validators.required],
       tipo: [TipoDespesa.OUTRO, Validators.required],
       data: [new Date().toISOString()],
-      descricao: ['', [Validators.required, Validators.minLength(5)]]
+      descricao: [null, [Validators.required, Validators.minLength(5)]]
     });
     this.tipo = Object.values(TipoDespesa);
-    this.cor = 'Primary';
+    this.isStatus = this.fg.status;
   }
-  adicionar(){
-    if(this.fg.status === 'INVALID'){;
-      console.log(this.fg.status);
-      console.log(this.alertbotao);
-    }else{
-      this.dp.adicionar(this.fg.value);
-    }
-  }
-  aviso(){
-    if(statusInvalido) {
-      return {
-        header: 'ERRO',
-        message: 'Esse campo não pode ser vazio.',
-        buttons: [{
-          text: 'ok',
-          handler: () => {
-            console.log('Botão Cancelar pressionado!');
-          }
+  async aviso() {
+    const alert = await this.alert.create({
+      header: 'Aviso',
+      message: 'Preencha os campos',
+      buttons: [{
+        text: 'OK',
+        handler:()=>{
+          console.log('Botão pressionado')
         }
-        ]
-      }
-    }else{
-      return {
+      }]
+    });
+    return alert; // retorna a instância do HTMLIonAlertElement
+  }
+
+  async adicionar() {
+    const alert = await this.aviso(); // espera a criação da janela de alerta
+    if (this.fg.status === 'INVALID') {
+      alert.message = "O item foi adicionado a lista";
+      alert.header = "Erro";
+      console.log('Formulário não preenchido corretamente.');
+      return this.limpar();
+    } else {
+      const successAlert = await this.alert.create({
         header: 'SUCESSO',
-        message: 'Item adcinado com sucesso.',
+        message: 'ITEM ADICIONADO',
         buttons: [{
-          text: 'ok',
-          handler: () => {
-            console.log('Botão Cancelar pressionado!');
+          text: 'OK',
+          handler:()=>{
+            console.log('Botão pressionado')
           }
-        }
-        ]
-      }
+        }]
+      });
+      successAlert.present(); // exibe o alerta de sucesso
+      console.log('Formulário foi preenchido corretamente.');
     }
   }
+
+
   ver(){}
   limpar(){
     this.fg.setValue({

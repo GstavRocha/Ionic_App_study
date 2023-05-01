@@ -29,6 +29,16 @@
 
          </ion-input>
        </ion-item>
+       <ion-item>
+         <ion-input label="VALOR:"
+                    type="number"
+                    label-placement="floating"
+                    placeholder="preço do produto"
+                    class="ion-text-center"
+                    formControlName="valor">
+
+         </ion-input>
+       </ion-item>
        <ion-item lines="none">
          <ion-label class="ion-text-center">DATA</ion-label>
        </ion-item>
@@ -42,10 +52,7 @@
        <ion-icon name="add-outline"></ion-icon>
      </ion-fab-button>
      <ion-alert trigger="adicionar"
-                [header]="aviso().header"
-                [message]="aviso().message"
-                [buttons]="aviso().buttons"
-   ></ion-alert>
+     ></ion-alert>
    </ion-fab>
    <ion-fab vertical="bottom" horizontal="center">
      <ion-fab-button name="ver" (click)="ver()">
