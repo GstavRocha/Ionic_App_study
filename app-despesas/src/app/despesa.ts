@@ -12,10 +12,12 @@ export class Despesa{
   valor: number;
   tipo: string;
   data: string;
+  descricao: string;
   constructor() {
     this.motivo = '';
     this.valor = 0;
     this.tipo = TipoDespesa.OUTRO;
     this.data = new Date().toISOString();
+    this.descricao = '';
   }
 }
