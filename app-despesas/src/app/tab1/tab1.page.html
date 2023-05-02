@@ -51,7 +51,9 @@
      <ion-fab-button id="adicionar" name="adicionar" (click)="adicionar()">
        <ion-icon name="add-outline"></ion-icon>
      </ion-fab-button>
-     <ion-alert trigger="adicionar"
+     <ion-alert>
+       <ion-title>{{avisoTitulo}}</ion-title>
+       <ion-title>{{avisoMensagem}}</ion-title>
      ></ion-alert>
    </ion-fab>
    <ion-fab vertical="bottom" horizontal="center">

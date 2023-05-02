@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,8 @@
       <workItem from="1682775750210" duration="359000" />
       <workItem from="1682776115562" duration="7879000" />
       <workItem from="1682945930289" duration="13745000" />
-      <workItem from="1682960721425" duration="7227000" />
+      <workItem from="1682960721425" duration="7427000" />
+      <workItem from="1683053440840" duration="2666000" />
     </task>
     <servers />
   </component>
