@@ -1,22 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="false">
   <ion-header collapse="condense">
     <ion-toolbar color="primary">
-      <ion-title size="medium">Ver Despesas</ion-title>
+      <ion-title size="medium">Lista de Despesas</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-item>
-    <ion-label>
-      <ion-title>{{despesas}}</ion-title>
-    </ion-label>
-  </ion-item>
-
+  <ion-content class="ion-margin">
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col> N°</ion-col>
+        <ion-col>Motivo</ion-col>
+        <ion-col>Valor</ion-col>
+        <ion-col>Tipo</ion-col>
+        <ion-col>Data</ion-col>
+        <ion-col>descricao</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let despesa of despesas; index as i">
+        <ion-col>{{ i + 1}}</ion-col>
+        <ion-col>{{despesa["motivo"]}}</ion-col>
+        <ion-col>{{despesa["valor"]}}</ion-col>
+        <ion-col>{{despesa["tipo"]}}</ion-col>
+        <ion-col>{{despesa["descricao"]}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
   <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>

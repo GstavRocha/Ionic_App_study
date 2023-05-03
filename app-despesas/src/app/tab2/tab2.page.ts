@@ -12,8 +12,12 @@ export class Tab2Page {
   constructor(public dps: DespesaServiceService) {
     this.despesas = [];
   }
+  ngOnInit(){
+    this.allDespesas();
+  }
   allDespesas(){
     this.despesas = this.dps.obterTodas();
+    console.log(this.despesas)
     return this.despesas;
   }
 
