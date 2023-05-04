@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {AlertController, IonicModule} from "@ionic/angular";
+import {IonicModule} from "@ionic/angular";
 import {ExploreContainerComponentModule} from "../explore-container/explore-container.module";
 import {NgForOf, NgIf} from "@angular/common";
 import {Despesa, TipoDespesa} from "../despesa";
 import {DespesaServiceService} from "../despesa.service.service";
 import {Router} from "@angular/router";
+import {debounce, debounceTime} from "rxjs";
 
 @Component({
   selector: 'app-tab1',
@@ -21,9 +22,9 @@ isStatus: string;
 exibirAviso = false;
 avisoTitulo: string;
 avisoMensagem: string;
-  constructor(private fb: FormBuilder,public dp: DespesaServiceService, private alert: AlertController, private rt: Router) {
+  constructor(private fb: FormBuilder,public dp: DespesaServiceService, private rt: Router) {
     this.fg = fb.group({
-      motivo: [null, [Validators.required, Validators.minLength(3)]],
+      motivo: [null, [Validators.required, Validators.minLength(5)]],
       valor: [0.0, Validators.required],
       tipo: [TipoDespesa.OUTRO, Validators.required],
       data: [new Date().toISOString()],
@@ -34,33 +35,20 @@ avisoMensagem: string;
     this.avisoTitulo = '';
     this.avisoMensagem = '';
   }
-  async adicionar() {
-    const alert = await this.aviso();
-    if (this.fg.status === 'INVALID') {
+  adicionar() {
+    if (this.fg.status === 'INVALID' && this.dp.duplicados(this.fg.value) && this.fg.invalid) {
       this.avisoTitulo = 'Erro';
       this.avisoMensagem = 'O formulário não foi preenchido correntamente';
       console.log('Formulário não preenchido corretamente.');
-      return this.limpar();
+      this.limpar()
+      return false;
     } else {
       this.avisoTitulo = 'Sucesso';
       this.avisoMensagem = 'Item adicionado!'
       this.dp.adicionar(this.fg.value);
       console.log('Formulário foi preenchido corretamente.');
+      return  true;
     }
-  }
-  async aviso() {
-    this.exibirAviso = true;
-    const alert = await this.alert.create({
-      header: this.avisoTitulo,
-      message: this.avisoMensagem,
-      buttons: [{
-        text: 'OK',
-        handler:()=>{
-          console.log('Botão pressionado')
-        }
-      }]
-    });
-    await alert.present();
   }
   ver(){
     this.rt.navigate(['/tabs/tab2'])
