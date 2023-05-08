@@ -9,6 +9,8 @@
       <change beforePath="$PROJECT_DIR$/app-despesas/src/app/despesa.service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/despesa.service.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +50,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gustavorocha/Desktop/Ionic_App_study&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gustavorocha/Desktop/Study_Data_Analises&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -90,7 +92,13 @@
       <workItem from="1682960721425" duration="7427000" />
       <workItem from="1683053440840" duration="2896000" />
       <workItem from="1683103163716" duration="2343000" />
-      <workItem from="1683199691601" duration="7694000" />
+      <workItem from="1683199691601" duration="7970000" />
+      <workItem from="1683222325003" duration="3307000" />
+      <workItem from="1683241623583" duration="4563000" />
+      <workItem from="1683288978405" duration="2173000" />
+      <workItem from="1683384129235" duration="144000" />
+      <workItem from="1683385895592" duration="24000" />
+      <workItem from="1683558160773" duration="4962000" />
     </task>
     <servers />
   </component>
