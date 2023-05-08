@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="471b2ab5-927b-404c-9001-0a3293007e65" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/despesa.service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/despesa.service.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab1/tab1.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app-despesas/src/app/tab2/tab2.page.ts" afterDir="false" />
-    </list>
+    <list default="true" id="471b2ab5-927b-404c-9001-0a3293007e65" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +91,7 @@
       <workItem from="1683288978405" duration="2173000" />
       <workItem from="1683384129235" duration="144000" />
       <workItem from="1683385895592" duration="24000" />
-      <workItem from="1683558160773" duration="4962000" />
+      <workItem from="1683558160773" duration="5274000" />
     </task>
     <servers />
   </component>
