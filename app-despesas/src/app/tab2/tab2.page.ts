@@ -16,7 +16,7 @@ export class Tab2Page {
     this.allDespesas();
   }
   allDespesas(){
-    this.despesas = this.dps.obterTodas();
+    this.despesas = this.dps.allDespesas();
     console.log(this.despesas)
     return this.despesas;
   }

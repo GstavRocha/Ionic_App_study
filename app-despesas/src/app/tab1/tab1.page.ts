@@ -19,9 +19,10 @@ export class Tab1Page {
 fg: FormGroup;
 tipo: string[];
 isStatus: string;
-exibirAviso = false;
+header: string;
 avisoTitulo: string;
 avisoMensagem: string;
+butao: string[];
   constructor(private fb: FormBuilder,public dp: DespesaServiceService, private rt: Router) {
     this.fg = fb.group({
       motivo: [null, [Validators.required, Validators.minLength(5)]],
@@ -34,21 +35,28 @@ avisoMensagem: string;
     this.isStatus = this.fg.status;
     this.avisoTitulo = '';
     this.avisoMensagem = '';
+    this.header='Aviso';
+    this.butao = [''];
   }
-  adicionar() {
-    if (this.fg.status === 'INVALID' && this.dp.duplicados(this.fg.value) && this.fg.invalid) {
-      this.avisoTitulo = 'Erro';
-      this.avisoMensagem = 'O formulário não foi preenchido correntamente';
-      console.log('Formulário não preenchido corretamente.');
-      this.limpar()
-      return false;
-    } else {
-      this.avisoTitulo = 'Sucesso';
-      this.avisoMensagem = 'Item adicionado!'
-      this.dp.adicionar(this.fg.value);
-      console.log('Formulário foi preenchido corretamente.');
-      return  true;
+  adicionar(){
+   let dupl:boolean = this.dp.duplicados(this.fg.value);
+    console.log(dupl)
+    if(!dupl){
+      console.log(dupl)
+      console.log('Adcionar == false');
+      this.header = 'Erro';
+      this.avisoMensagem = 'Campo Vazio';
+      this.butao = ['Cancel'];
+      return false
     }
+    console.log(dupl)
+    console.log('Adcionar == True')
+    this.avisoMensagem = 'Item adicionado';
+    this.header = 'Success';
+    this.butao = ['Ok'];
+    this.dp.add(this.fg.value);
+    return true;
+
   }
   ver(){
     this.rt.navigate(['/tabs/tab2'])

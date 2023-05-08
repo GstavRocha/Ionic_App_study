@@ -1,41 +1,37 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {Despesa} from "./despesa";
+import {FormControl} from "@angular/forms";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class DespesaServiceService {
+export class DespesaServiceService{
+  buscaEntrada = new FormControl;
   despesas: Despesa[]
+  ultimoAdd: Date;
 
   constructor() {
     this.despesas = [];
+    this.ultimoAdd = new Date();
+
   }
   duplicados(dsp: Despesa){
-    if(dsp.motivo === null && dsp.descricao === null){
-      console.log('não verificados no duplicados');
-      return false;
+    return !(dsp.motivo === null && dsp.descricao === null);
+    }
 
-    }else{
-      if(this.despesas.find((e)=>e.motivo === e.motivo)){
-        console.log('Duplicado')
-        return false;
-      }else{
-        this.despesas.push(dsp);
-        console.log('Item adicionado')
-      }
-      return true;
-    }
-  }
-  adicionar(dsp: Despesa): boolean{
-    if( dsp != null && dsp.motivo !== null && dsp.descricao !== null){
+  add(dsp: Despesa){
+    if(dsp !== null && !this.duplicados(dsp)){
       this.despesas.push(dsp);
-      console.log(this.despesas)
       return true;
     }
-    console.log('nao adicionou');
     return false;
-  }
-  obterTodas(): Despesa[]{
-    return this.despesas
-  }
+    }
+    allDespesas(): Despesa[]{
+    console.log(this.despesas)
+    return this.despesas;
+    }
 }
+
+
+
